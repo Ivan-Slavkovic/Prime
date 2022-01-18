@@ -220,6 +220,17 @@ const Temporary = () => {
 							className="text-primary text-center">
 							Add User
 						</h4>
+						<ul className="text-danger">
+							{Object.keys(errors).map((control) => {
+								if (dirty[control]) {
+									return errors[control].map((err) => {
+										return <li key={err}>{err}</li>;
+									});
+								} else {
+									return '';
+								}
+							})}
+						</ul>
 					</div>
 					{Object.keys(state).map((result, index) => {
 						if (
@@ -345,11 +356,12 @@ const Temporary = () => {
 					<div className="card-footer text-center">
 						<div className="m-1">{message}</div>
 						<div>
-							<button
+							<Link
+								to="/"
 								className="btn btn-primary m-2"
 								onClick={onRegisterClick}>
 								Register
-							</button>
+							</Link>
 						</div>
 					</div>
 				</div>

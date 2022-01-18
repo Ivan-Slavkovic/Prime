@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { deleteRequest, getRequest, updateUser } from '../api';
 import { Link } from 'react-router-dom';
-import Hire from './Hire';
 import './ListOfUsers.css';
 
 const ListOfUsers = (props) => {
@@ -135,7 +134,15 @@ const ListOfUsers = (props) => {
 													{user.yearsOfExperience}
 												</td>
 												<td>{user.nativeLanguage}</td>
-												<td>{user.linkedin}</td>
+												<td>
+													{user.linkedin ? (
+														<a href={user.linkedin}>
+															Linkedin
+														</a>
+													) : (
+														''
+													)}
+												</td>
 												<td className="d-grid gap-3">
 													<button
 														type="button"
